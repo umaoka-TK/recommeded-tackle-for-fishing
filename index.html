@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>釣りコンシェルジュ</title>
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-title" content="釣りコンシェルジュ">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<style>
+
+body{
+
+    font-family:sans-serif;
+
+    margin:20px;
+
+}
+
+select,button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0;
+
+    font-size:16px;
+
+}
+
+#result{
+
+    margin-top:20px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    padding:15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎣 釣りコンシェルジュ</h1>
+
+<label>魚種</label>
+
+<select id="fish">
+
+    <option>クイーンフィッシュ</option>
+
+    <option>バラマンディ</option>
+
+    <option>GT</option>
+
+    <option>ピーコックバス</option>
+
+</select>
+
+<label>場所</label>
+
+<select id="location">
+
+    <option>Marina South Pier</option>
+
+    <option>Bedok Jetty</option>
+
+    <option>Tuas</option>
+
+</select>
+
+<label>釣り方</label>
+
+<select id="style">
+
+    <option>岸釣り</option>
+
+    <option>船釣り</option>
+
+</select>
+
+<label>時間帯</label>
+
+<select id="time">
+
+    <option>朝マヅメ</option>
+
+    <option>日中</option>
+
+    <option>夕マヅメ</option>
+
+    <option>夜</option>
+
+</select>
+
+<button onclick="search()">おすすめ表示</button>
+
+<div id="result"></div>
+
+<script>
+
+function search(){
+
+const fish =
+
+document.getElementById("fish").value;
+
+const location =
+
+document.getElementById("location").value;
+
+const style =
+
+document.getElementById("style").value;
+
+const time =
+
+document.getElementById("time").value;
+
+let result="";
+
+if(
+
+fish==="クイーンフィッシュ" &&
+
+style==="岸釣り"
+
+){
+
+result=`
+
+<h2>クイーンフィッシュ攻略</h2>
+
+<p><b>ロッド</b><br>
+
+9〜10ft M</p>
+
+<p><b>リール</b><br>
+
+4000番</p>
+
+<p><b>PE</b><br>
+
+1〜1.5号</p>
+
+<p><b>リーダー</b><br>
+
+30〜40lb</p>
+
+<p><b>ルアー</b><br>
+
+20〜40gジグ
+
+シンキングペンシル</p>
+
+<p><b>攻略法</b><br>
+
+潮目を狙い高速巻き</p>
+
+`;
+
+}
+
+else if(
+
+fish==="ピーコックバス"
+
+){
+
+result=`
+
+<h2>ピーコックバス攻略</h2>
+
+<p><b>ロッド</b><br>
+
+6〜7ft ML</p>
+
+<p><b>リール</b><br>
+
+2500番</p>
+
+<p><b>PE</b><br>
+
+1号</p>
+
+<p><b>リーダー</b><br>
+
+20lb</p>
+
+<p><b>ルアー</b><br>
+
+ポッパー
+
+スピナーベイト</p>
+
+<p><b>攻略法</b><br>
+
+ストラクチャー周りを狙う</p>
+
+`;
+
+}
+
+else{
+
+result=`
+
+<h2>${fish}</h2>
+
+<p>データ作成中</p>
+
+`;
+
+}
+
+document.getElementById("result").innerHTML =
+
+result;
+
+}
+
+</script>
+
+</body>
+
+</html>
